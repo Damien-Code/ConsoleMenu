@@ -10,58 +10,63 @@ namespace ConsoleMenu
     {
         static void Main(string[] args)
         {
+            SecretNumber secretNumber = new SecretNumber();
+
             while (true)
             {
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("\n 1. Secret number \n 2. Quiz \n 3. Names \n 4. Calculator");
                 int givenNumber = Convert.ToInt32(Console.ReadLine());
 
-                //SecretNumber(givenNumber);
-                if (givenNumber == 1)
-                {
-                    Console.WriteLine("Please enter a number between 1 and 99");
-                    Random rand = new Random();
-                    int randomNumber = rand.Next(1, 99 + 1);
-                    while (true)
-                    {
-                        string UserInput;
-                        //error handling
-                        while (true)
-                        {
-                            UserInput = Console.ReadLine();
-                            try
-                            {
-                                if (1 > Convert.ToInt32(UserInput) || Convert.ToInt32(UserInput) > 99) { Convert.ToInt32("null"); };
-                            }
-                            catch
-                            {
-                                Console.WriteLine("Please enter a valid number");
-                                continue;
-                            }
-                            break;
-                        }
-
-                        //end error handling
-                        int UserNum = Convert.ToInt32(UserInput);
-                        //check number
-                        if (UserNum == randomNumber)
-                        {
-                            Console.WriteLine("You've guessed the right number");
-                            // exit the while loop
-                            break;
-                        }
-                        else if (UserNum < randomNumber)
-                        {
-                            Console.WriteLine("Guess higher");
-                            continue;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Guess lower");
-                            continue;
-                        }
-                    }
+                if (givenNumber == 1) { 
+                    SecretNumber.SecretNum();
                 }
+
+                //if (givenNumber == 1)
+                //{
+                //    Console.WriteLine("Please enter a number between 1 and 99");
+                //    Random rand = new Random();
+                //    int randomNumber = rand.Next(1, 99 + 1);
+                //    while (true)
+                //    {
+                //        string UserInput;
+                //        //error handling
+                //        while (true)
+                //        {
+                //            UserInput = Console.ReadLine();
+                //            try
+                //            {
+                //                if (1 > Convert.ToInt32(UserInput) || Convert.ToInt32(UserInput) > 99) { Convert.ToInt32("null"); };
+                //            }
+                //            catch
+                //            {
+                //                Console.WriteLine("Please enter a valid number");
+                //                continue;
+                //            }
+                //            break;
+                //        }
+
+                //        //end error handling
+                //        int UserNum = Convert.ToInt32(UserInput);
+                //        //check number
+                //        if (UserNum == randomNumber)
+                //        {
+                //            Console.WriteLine("You've guessed the right number");
+                //            // exit the while loop
+                //            break;
+                //        }
+                //        else if (UserNum < randomNumber)
+                //        {
+                //            Console.WriteLine("Guess higher");
+                //            continue;
+                //        }
+                //        else
+                //        {
+                //            Console.WriteLine("Guess lower");
+                //            continue;
+                //        }
+                //    }
+                //}
 
                 if (givenNumber == 3)
                 {
