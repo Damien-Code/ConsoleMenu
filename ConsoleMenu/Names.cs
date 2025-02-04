@@ -28,6 +28,7 @@ namespace ConsoleMenu
             Console.WriteLine("What is your name?");
             string title = Console.ReadLine();
             names.Add(title);
+
             foreach (string name in names)
             {
                 if (name.Length < 5)
