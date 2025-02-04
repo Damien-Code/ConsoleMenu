@@ -17,10 +17,13 @@ namespace ConsoleMenu
             Quiz quiz = new Quiz();
             Calculator calculator = new Calculator();
 
+
             while (true)
             {
-                Console.WriteLine("What would you like to do?");
-                Console.WriteLine("\n 1. Secret number \n 2. Quiz \n 3. Names \n 4. Calculator");
+                // Runs the Options method
+                Program.Options();
+
+                // Cannot find out why i cannot implement this to Options and make it work
                 int givenNumber = Convert.ToInt32(Console.ReadLine());
 
                 // Runs the Secret Number method
@@ -48,6 +51,14 @@ namespace ConsoleMenu
                 }
 
             }
+        }
+
+        // Give the options to the user
+        // Would like to implement the readline in this method too
+        public static void Options()
+        {
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("\n 1. Secret number \n 2. Quiz \n 3. Names \n 4. Calculator");
         }
     }
 }
