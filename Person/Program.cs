@@ -12,6 +12,7 @@ namespace Person
         {
             // Initialize the Person method
             Person person = new Person();
+            Person person2 = new Person("John doe", 21);
 
             Console.WriteLine("What is your name?");
             person.Name = Console.ReadLine();
@@ -20,6 +21,11 @@ namespace Person
 
             // Runs the Talk method
             person.Talk();
+
+            // Runs the constructor for person2
+            person2.Talk();
+
+
         }
 
     }
@@ -29,6 +35,8 @@ namespace Person
     {
         private string _name;
         private int _age;
+
+
 
         // get set for Name
         public string Name { 
@@ -70,8 +78,26 @@ namespace Person
         public void Talk()
         {
             // use private properties so it does not conflict with possible getter manipulations
-            Console.WriteLine($"Hello, my name is {_name} and im {_age} old!");
+            Console.WriteLine($"Hello, my name is {_name} and im {_age} years old!");
         }
+
+        public Person()
+        {
+            Name =  "";
+            Age = 0;
+        }
+
+
+        // Constructor for person
+        public Person(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
+        
+
+
             
         
 
