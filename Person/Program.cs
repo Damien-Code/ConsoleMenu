@@ -50,7 +50,7 @@ namespace Person
             // return value
             get
             {
-                return _age;
+                return _age; // * 99;
             }
             // set value
             set
@@ -69,7 +69,8 @@ namespace Person
         // Method that uses input of name and age
         public void Talk()
         {
-            Console.WriteLine($"Hello, my name is {Name} and im {Age} old!");
+            // use private properties so it does not conflict with possible getter manipulations
+            Console.WriteLine($"Hello, my name is {_name} and im {_age} old!");
         }
             
         
