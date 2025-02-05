@@ -10,22 +10,28 @@ namespace Person
     {
         static void Main(string[] args)
         {
-            // Initialize the Person method
-            Person person = new Person();
-            Person person2 = new Person("John doe", 21);
+            while (true)
+            {
+                // Initialize the Person method
+                Person person = new Person();
+                Person person2 = new Person("John doe", 22);
+                Console.WriteLine("What is your name?");
+                person.Name = Console.ReadLine();
+                Console.WriteLine("What is your age?");
+                person.Age = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("What is your name?");
-            person.Name = Console.ReadLine();
-            Console.WriteLine("What is your age?");
-            person.Age = Convert.ToInt32(Console.ReadLine());
+                // Runs the Talk method
+                person.Talk();
 
-            // Runs the Talk method
-            person.Talk();
+                // Runs the constructor for person2
+                person2.Talk();
 
-            // Runs the constructor for person2
-            person2.Talk();
+                Console.WriteLine("Please choose your favorite day!");
+                string weekday = Console.ReadLine();
 
+                Weekdays();
 
+            }
         }
 
     }
@@ -35,15 +41,14 @@ namespace Person
     {
         private string _name;
         private int _age;
-
-
+        private static int _count;
 
         // get set for Name
-        public string Name { 
+        public string Name {
             // return value
-            get 
+            get
             {
-                return _name; 
+                return _name;
             }
             // set value
             set
@@ -79,12 +84,15 @@ namespace Person
         {
             // use private properties so it does not conflict with possible getter manipulations
             Console.WriteLine($"Hello, my name is {_name} and im {_age} years old!");
+            NumberOfPersons();
         }
 
         public Person()
         {
-            Name =  "";
+            Name = "";
             Age = 0;
+            _count++;
+
         }
 
 
@@ -93,13 +101,18 @@ namespace Person
         {
             Name = name;
             Age = age;
+
+        }
+
+        // Method to display count of persons
+        public static void NumberOfPersons()
+        {
+            Console.WriteLine("There are {0} persons", _count);
         }
 
         
-
-
-            
-        
+    
 
     }
+
 }
