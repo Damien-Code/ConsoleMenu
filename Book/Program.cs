@@ -16,7 +16,7 @@ namespace Book
 
             Console.WriteLine("The total amount of all the pages are:" + Book.TotalPages(bookcase));
             Console.WriteLine("The average of all the books are:" + Book.AveragePages(bookcase));
-            Console.WriteLine("The book with the most amount of pages: " + biggest.pages);
+            Console.WriteLine("The book with the most amount of pages: " + Book.BiggestBook(bookcase).pages);
         }
 
 }
