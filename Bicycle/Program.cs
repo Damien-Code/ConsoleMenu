@@ -7,4 +7,9 @@
             Console.WriteLine("Hello, World!");
         }
     }
+
+    internal class Bicycle
+    {
+        public string Frame = 
+    }
 }
