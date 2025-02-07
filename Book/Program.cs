@@ -8,23 +8,25 @@ namespace Book
         static void Main(string[] args)
         {
             List<Book> bookcase = new List<Book>();
-            bookcase.Add(new Book(500));
-            bookcase.Add(new Book(250));
+            bookcase.Add(new Book("Atomic Habits", 500));
+            bookcase.Add(new Book("Harry potter", 250));
 
             Console.WriteLine("Please enter the amount of pages of the book that you are currently reading");
-            bookcase.Add(new Book(Convert.ToInt32(Console.ReadLine())));
+            bookcase.Add(new Book(Console.ReadLine(), Convert.ToInt32(Console.ReadLine())));
 
-            Console.WriteLine("The total amount of all the pages are:" + Book.TotalPages(bookcase));
-            Console.WriteLine("The average of all the books are:" + Book.AveragePages(bookcase));
-            Console.WriteLine("The book with the most amount of pages: " + Book.BiggestBook(bookcase).pages);
+            Console.WriteLine($"The total amount of all the pages:  { Book.TotalPages(bookcase) }");
+            Console.WriteLine("The average pages of all the books are:" + Book.AveragePages(bookcase));
+            Console.WriteLine($"The book with the most amount of pages: {Book.BiggestBook(bookcase).pages} {Book.BiggestBook(bookcase).title}");
+            Console.WriteLine($"The title of your book: {Book.BookTitle(bookcase).title}");
         }
 
 }
         
     internal class Book
     {
+        public string title;
         public int pages;
-        
+
         public static int TotalPages(List<Book> books)
         {
             int total = 0;
@@ -58,13 +60,22 @@ namespace Book
             return biggest;
         }
 
+        public static Book BookTitle(List<Book> books)
+        {
+            Book book = books.LastOrDefault();
+            return book;
+
+        }
+
        
         public Book()
         {
-            pages = 0;
+            title = "Book 1";
+            pages = 50;
         }
-        public Book(int pages)
+        public Book(string title, int pages)
         {
+            this.title = title;
             this.pages = pages;
 
         }
