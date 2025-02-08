@@ -14,13 +14,13 @@ namespace ConsoleMenu
             {
                 Console.WriteLine("Welcome to the calculator");
                 Console.WriteLine(" 1. Addition \n 2. Substraction \n 3. Multiply \n 4. Division \n");
-                int action = Convert.ToInt32(Console.ReadLine());
+                double action = Convert.ToInt32(Console.ReadLine());
 
                 Console.WriteLine("Enter your first input");
-                int num1 = Convert.ToInt32(Console.ReadLine());
+                double num1 = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Enter your second input");
-                int num2 = Convert.ToInt32(Console.ReadLine());
-                int result = 0;
+                double num2 = Convert.ToDouble(Console.ReadLine());
+                double result = 0;
 
                     switch (action)
                     {
@@ -45,30 +45,30 @@ namespace ConsoleMenu
         }
 
         // Returns result of Addition method
-        public static int Addition(int num1, int num2)
+        public static double Addition(double num1, double num2)
         {
-            int result = num1 + num2;
+            double result = num1 + num2;
             return result;
         }
 
         // Returns result of Substraction method
-        public static int Substraction(int num1, int num2)
+        public static double Substraction(double num1, double num2)
         {
-            int result = num1 - num2;
+            double result = num1 - num2;
             return result;
         }
 
         // Returns result of Multiply method
-        public static int Multiply(int num1, int num2)
+        public static double Multiply(double num1, double num2)
         {
-            int result = num1 * num2;
+            double result = num1 * num2;
             return num1 * num2;
         }
 
         // Returns result of Division method
-        public static int Division(int num1, int num2)
+        public static double Division(double num1, double num2)
         {
-            int result = num1 / num2;
+            double result = num1 / num2;
             return result;
         }
     }
