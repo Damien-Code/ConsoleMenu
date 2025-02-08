@@ -26,10 +26,10 @@ namespace Person
                 // Runs the constructor for person2
                 person2.Talk();
 
-                Console.WriteLine("Please choose your favorite day!");
-                string weekday = Console.ReadLine();
+                //Console.WriteLine("Please choose your favorite day!");
+                //string weekday = Console.ReadLine();
 
-                Weekdays();
+                //Weekdays();
 
             }
         }
@@ -91,8 +91,6 @@ namespace Person
         {
             Name = "";
             Age = 0;
-            _count++;
-
         }
 
 
@@ -104,11 +102,19 @@ namespace Person
 
         }
 
+        public static int InstanceCounter()
+        {
+            _count++;
+            return _count;
+        }
+
         // Method to display count of persons
         public static void NumberOfPersons()
         {
-            Console.WriteLine("There are {0} persons", _count);
+            Console.WriteLine("There are {0} persons", InstanceCounter());
         }
+
+        
 
         
     
