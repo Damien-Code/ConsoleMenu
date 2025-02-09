@@ -10,15 +10,19 @@
             car1.DisplayInfo();
             car2.DisplayInfo();
             Garage garage = new Garage();
+            Garage garage2 = new Garage();
             garage.AddCar(car1);
             garage.AddCar(car2);
             garage.DisplayList();
 
-            Console.WriteLine("Sorted list");
-            List<Car> list = new List<Car>();
-            garage.SortList();
+            //Console.WriteLine("Sorted list");
+            //List<Car> list = new List<Car>();
+            //garage.SortList();
             
-            
+            W_Park w_Park = new W_Park();
+            w_Park.AddGarage(garage);
+            w_Park.AddGarage(garage2);
+            w_Park.DisplayList();
             
         }
     }
@@ -90,6 +94,30 @@
             foreach (Car car in _cars)
             {
                 car.DisplayInfo();
+            }
+        }
+    }
+
+    class W_Park
+    {
+        private List<Garage> _garage = [];
+
+        public void AddGarage(Garage garage)
+        {
+            _garage.Add(garage);
+        }
+
+        public void RemoveGarage(Garage garage)
+        {
+            _garage.Remove(garage);
+        }
+
+        public void DisplayList()
+        {
+            foreach(Garage garage in _garage)
+            {
+                Console.WriteLine($"Garage: {garage}");
+                garage.DisplayList();
             }
         }
     }
