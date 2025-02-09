@@ -6,8 +6,16 @@
         {
             Car car1 = new Car();
             Car car2 = new Car("Lambo", "Supercar", "Yellow", "me", 2024, 54321);
+            
             car1.DisplayInfo();
             car2.DisplayInfo();
+            Garage garage = new Garage();
+            garage.AddCar(car1);
+            garage.AddCar(car2);
+            garage.DisplayGarage();
+            
+            
+            
         }
     }
 
@@ -45,5 +53,32 @@
         }
 
 
+    }
+
+    class Garage
+    {
+        
+        List<Car> _cars = [];
+
+        public void AddCar(Car car)
+        {
+            _cars.Add(car);
+        }
+
+        public void RemoveCar(Car car)
+        {
+            _cars.Remove(car);
+        }
+
+        public void DisplayGarage()
+        {
+            foreach (Car car in _cars)
+            {
+
+                car.DisplayInfo();
+            }
+        }
+
+      
     }
 }
