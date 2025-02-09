@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Car car1 = new Car();
+            Car car2 = new Car("Lambo", "Supercar", "Yellow", "me", 2024, 54321);
+            car1.DisplayInfo();
+            car2.DisplayInfo();
         }
     }
 
@@ -34,6 +37,11 @@
             _owner = owner;
             _year = year;
             _vin = vin;
+        }
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Your car: {_brand} \n Your type: {_type} \n The color of your car: {_color} \n The owner: {_owner} \n The buildyear {_year} \n The VIN number {_vin}");
         }
 
 
