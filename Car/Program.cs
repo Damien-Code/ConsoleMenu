@@ -12,7 +12,11 @@
             Garage garage = new Garage();
             garage.AddCar(car1);
             garage.AddCar(car2);
-            garage.DisplayGarage();
+            garage.DisplayList();
+
+            Console.WriteLine("Sorted list");
+            List<Car> list = new List<Car>();
+            garage.SortList();
             
             
             
@@ -57,7 +61,7 @@
 
     class Garage
     {
-        
+
         List<Car> _cars = [];
 
         public void AddCar(Car car)
@@ -70,15 +74,23 @@
             _cars.Remove(car);
         }
 
-        public void DisplayGarage()
+        public void DisplayList()
         {
             foreach (Car car in _cars)
             {
-
                 car.DisplayInfo();
             }
         }
 
-      
+        // cannot seem to find out the let the sort work
+        // Will ask students of teachers for explanation
+        public void SortList()
+        {
+            _cars.Sort();
+            foreach (Car car in _cars)
+            {
+                car.DisplayInfo();
+            }
+        }
     }
 }
