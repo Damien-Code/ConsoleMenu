@@ -9,11 +9,12 @@
             
             car1.DisplayInfo();
             car2.DisplayInfo();
-            Garage garage = new Garage();
-            Garage garage2 = new Garage();
+            Garage garage = new Garage("Garage1");
+            Garage garage2 = new Garage("Garage2");
             garage.AddCar(car1);
             garage.AddCar(car2);
             garage.DisplayList();
+            garage2.AddCar(car1);
 
             //Console.WriteLine("Sorted list");
             //List<Car> list = new List<Car>();
@@ -22,6 +23,9 @@
             W_Park w_Park = new W_Park();
             w_Park.AddGarage(garage);
             w_Park.AddGarage(garage2);
+            Car car3 = new();
+            w_Park.AddCar(car3, "Garage2");
+            w_Park.RemoveCar(car2, "Garage2");
             w_Park.DisplayList();
             
         }
@@ -67,7 +71,19 @@
     {
 
         List<Car> _cars = [];
+        public string Name;
 
+        public Garage()
+        {
+            Name = "Garage";
+        }
+
+        public Garage(string Name)
+        {
+            this.Name = Name;
+        }
+
+       
         public void AddCar(Car car)
         {
             _cars.Add(car);
@@ -112,11 +128,36 @@
             _garage.Remove(garage);
         }
 
+        public void AddCar(Car car, string garageName)
+        {
+            foreach (Garage g in _garage)
+            {
+                if (g.Name == garageName)
+                {
+                    g.AddCar(car);
+                    return;
+                } 
+            }
+            
+        }
+
+        public void RemoveCar(Car car, string garageName)
+        {
+            foreach (Garage g in _garage)
+            {
+                if (g.Name == garageName)
+                {
+                    g.RemoveCar(car);
+                    return;
+                }
+            }     
+        }
+
         public void DisplayList()
         {
             foreach(Garage garage in _garage)
             {
-                Console.WriteLine($"Garage: {garage}");
+                Console.WriteLine($"\nGarage: {garage.Name}");
                 garage.DisplayList();
             }
         }
